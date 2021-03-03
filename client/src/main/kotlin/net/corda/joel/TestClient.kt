@@ -2,9 +2,6 @@ package net.corda.joel
 
 import net.corda.client.rpc.CordaRPCClient
 import net.corda.core.utilities.NetworkHostAndPort.Companion.parse
-import java.util.*
-import net.corda.v5.base.concurrent.getOrThrow
-import net.corda.sample.datapersistence.flows.CustomSerializerRecordFlow
 
 fun main() {
     val address = parse("localhost:10003")
@@ -15,9 +12,8 @@ fun main() {
     val cordaRpcOpsConnection = cordaRpcOpsClient.start(username, password)
     val cordaRpcOpsProxy = cordaRpcOpsConnection.proxy
 
-    cordaRpcOpsProxy.startFlowDynamic(CustomSerializerRecordFlow.Initiator::class.java, "name-${UUID.randomUUID()}")
-            .returnValue
-            .getOrThrow()
+    println("Do something with $cordaRpcOpsProxy!")
+    println(cordaRpcOpsProxy.startFlowDynamic(DummyFlowTwoReturnOfTheFlow::class.java).returnValue.get())
 
     cordaRpcOpsConnection.close()
 }
