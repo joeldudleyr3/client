@@ -1,4 +1,4 @@
-package net.corda.joel
+package net.corda.joel.cordapp
 
 import net.corda.core.flows.FlowLogic
 import net.corda.core.flows.InitiatingFlow

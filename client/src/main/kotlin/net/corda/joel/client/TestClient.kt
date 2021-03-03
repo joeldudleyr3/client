@@ -1,7 +1,8 @@
-package net.corda.joel
+package net.corda.joel.client
 
 import net.corda.client.rpc.CordaRPCClient
 import net.corda.core.utilities.NetworkHostAndPort.Companion.parse
+import net.corda.joel.cordapp.DummyFlow
 
 fun main() {
     val address = parse("localhost:10003")
@@ -12,8 +13,7 @@ fun main() {
     val cordaRpcOpsConnection = cordaRpcOpsClient.start(username, password)
     val cordaRpcOpsProxy = cordaRpcOpsConnection.proxy
 
-    println("Do something with $cordaRpcOpsProxy!")
-    println(cordaRpcOpsProxy.startFlowDynamic(DummyFlowTwoReturnOfTheFlow::class.java).returnValue.get())
+    println(cordaRpcOpsProxy.startFlowDynamic(DummyFlow::class.java).returnValue.get())
 
     cordaRpcOpsConnection.close()
 }

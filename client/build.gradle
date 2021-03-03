@@ -8,10 +8,10 @@ dependencies {
     implementation project(":client:rpc")
     implementation project(":flows")
 
-    cordapp project(":joel:cordapp")
+    implementation project(":joel:cordapp")
 }
 
 task run(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
-    main = "net.corda.joel.TestClientKt"
+    main = "net.corda.joel.client.TestClientKt"
 }

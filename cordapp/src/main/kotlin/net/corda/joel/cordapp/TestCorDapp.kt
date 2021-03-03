@@ -1,4 +1,4 @@
-package net.corda.joel
+package net.corda.joel.cordapp
 
 import net.corda.core.contracts.BelongsToContract
 import net.corda.core.contracts.Contract
