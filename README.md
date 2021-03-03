@@ -1,7 +1,9 @@
-A simple CorDapp and client, used for testing when writing Corda.
+A simple CorDapp and client, used for manual testing when making changes to the `corda` repo.
 
-Run the `joel:deployNodes` task to create the nodes.
+This repository should be downloaded and copied into the `corda` directory, and its modules (`joel`, `joel:cordapp` and `joel:client`) should be included in the `settings.gradle` file.
 
-Run the `joel:cordapp:cpk` task to generate the CorDapp CPK.
+Things to do:
 
-Run the `joel:client:run` task to run the client.
+* Run the `joel:deployNodes` task to create the nodes
+* Run the `joel:cordapp:cpk` task to generate the CorDapp CPK
+* Run the `joel:client:run` task to interact with a running node
