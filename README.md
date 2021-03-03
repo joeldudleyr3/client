@@ -5,5 +5,5 @@ This repository should be downloaded and copied into the `corda` directory, and 
 Things to do:
 
 * Run the `joel:deployNodes` task to create the nodes
-* Run the `joel:cordapp:cpk` task to generate the CorDapp CPK
+* Run the `joel:cordapp:assemble` task to generate the CorDapp CPK
 * Run the `joel:client:run` task to interact with a running node
