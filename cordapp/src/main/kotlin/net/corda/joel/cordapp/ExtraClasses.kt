@@ -1,20 +1,16 @@
 package net.corda.joel.cordapp
 
-import net.corda.core.flows.FlowLogic
 import net.corda.core.flows.InitiatingFlow
 import net.corda.core.flows.StartableByRPC
 import net.corda.core.flows.flowservices.dependencies.CordaInject
 import net.corda.core.node.AppServiceHub
 import net.corda.core.node.services.CordaService
-import net.corda.core.schemas.MappedSchema
-import net.corda.core.schemas.PersistentState
+import net.corda.core.node.services.persistence.MappedSchema
 import net.corda.core.serialization.CheckpointCustomSerializer
 import net.corda.core.serialization.SerializationWhitelist
 import net.corda.core.serialization.SingletonSerializeAsToken
-import net.corda.core.transactions.SignedTransaction
+import net.corda.v5.legacyapi.flows.FlowLogic
 import net.corda.v5.serialization.SerializationCustomSerializer
-import javax.persistence.Entity
-import javax.persistence.Table
 
 // Another flow implementation.
 @InitiatingFlow

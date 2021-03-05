@@ -6,6 +6,9 @@ plugins {
 dependencies {
     cordaProvided project(":core")
     cordaProvided project(":flows")
+    cordaProvided project(':ledger:ledger-api')
+    cordaProvided project(':ledger:ledger-impl')
+    cordaProvided project(':legacy-api')
 }
 
 cordapp {

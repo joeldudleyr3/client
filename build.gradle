@@ -9,13 +9,13 @@ dependencies {
     cordapp project(":joel:cordapp")
 }
 
-task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar', ':osgi-framework-bootstrap:buildCordaJar']) {
+task deployNodes(type: net.corda.plugins.Cordform, dependsOn: [':joel:cordapp:assemble', ':osgi-framework-bootstrap:buildCordaJar']) {
     nodeDefaults{
         projectCordapp {
             deploy = false
         }
         cordapp project(":joel:cordapp")
-        runSchemaMigration = true
+        runSchemaMigration = false
     }
     node {
         name "O=Notary Node,L=Zurich,C=CH"
