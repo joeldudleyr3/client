@@ -1,16 +1,22 @@
 package net.corda.joel.cordapp
 
+import net.corda.core.flows.Flow
+import net.corda.core.flows.FlowSession
 import net.corda.core.flows.InitiatingFlow
 import net.corda.core.flows.StartableByRPC
 import net.corda.core.flows.flowservices.dependencies.CordaInject
 import net.corda.core.node.AppServiceHub
+import net.corda.core.node.ServiceHub
 import net.corda.core.node.services.CordaService
 import net.corda.core.node.services.persistence.MappedSchema
 import net.corda.core.serialization.CheckpointCustomSerializer
 import net.corda.core.serialization.SerializationWhitelist
 import net.corda.core.serialization.SingletonSerializeAsToken
+import net.corda.systemflows.internal.notary.SinglePartyNotaryService
+import net.corda.systemflows.internal.notary.UniquenessProvider
 import net.corda.v5.legacyapi.flows.FlowLogic
 import net.corda.v5.serialization.SerializationCustomSerializer
+import java.security.PublicKey
 
 // Another flow implementation.
 @InitiatingFlow
@@ -64,5 +70,27 @@ class CheckpointSerializer :
 
     override fun fromProxy(proxy: Proxy): StringAtom {
         return StringAtom("atom")
+    }
+}
+
+// Custom notary.
+class DummyNotaryService : SinglePartyNotaryService() {
+    override val uniquenessProvider: UniquenessProvider
+        get() = TODO("Not yet implemented")
+    override val services: ServiceHub
+        get() = TODO("Not yet implemented")
+    override val notaryIdentityKey: PublicKey
+        get() = TODO("Not yet implemented")
+
+    override fun start() {
+        TODO("Not yet implemented")
+    }
+
+    override fun stop() {
+        TODO("Not yet implemented")
+    }
+
+    override fun createServiceFlow(otherPartySession: FlowSession): Flow<Void?> {
+        TODO("Not yet implemented")
     }
 }

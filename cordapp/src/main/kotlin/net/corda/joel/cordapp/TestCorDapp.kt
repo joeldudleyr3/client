@@ -20,7 +20,7 @@ data class DummyState(override val participants: List<AbstractParty> = listOf())
 
 class DummyContract : Contract {
     companion object {
-        const val ID = "net.corda.joel.DummyContract"
+        const val ID = "net.corda.joel.cordapp.DummyContract"
     }
     override fun verify(tx: LedgerTransaction) = Unit
 }
