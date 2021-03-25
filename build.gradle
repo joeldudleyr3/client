@@ -3,13 +3,13 @@ plugins {
 }
 
 dependencies {
-    cordaRuntimeOnly project(path: ":osgi-framework-bootstrap", configuration: 'runtimeArtifacts')
-    cordaRuntimeOnly project(":node-api")
+    cordaRuntime project(path: ":osgi-framework-bootstrap", configuration: 'runtimeArtifacts')
+    cordaRuntime project(":node-api")
 
     cordapp project(":joel:cordapp")
 }
 
-task deployNodes(type: net.corda.plugins.Cordform, dependsOn: [':joel:cordapp:assemble', ':osgi-framework-bootstrap:buildCordaJar']) {
+task deployNodes(type: net.corda.plugins.Cordform, dependsOn: [':joel:cordapp:assemble', ':osgi-framework-bootstrap:buildCordaJAR']) {
     nodeDefaults{
         projectCordapp {
             deploy = false
@@ -30,27 +30,27 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: [':joel:cordapp:as
         rpcUsers = [[ user: "user", "password": "test", "permissions": ["ALL"]]]
         extraConfig = [
             // Exposes an HTTP interface to the node.
-            'httpRpcSettings.address': "smoke-tests-network-alice:8888",
+            'httpRpcSettings.address': "localhost:8888",
             'httpRpcSettings.context.basePath': "/api",
             'httpRpcSettings.context.description': "Exposing RPCOps interfaces as webservices",
             'httpRpcSettings.context.title': "HTTP RPC demo",
             'httpRpcSettings.context.version': "1",
             // Runs against Postgres.
-//            'dataSourceProperties.dataSourceClassName':'org.postgresql.ds.PGSimpleDataSource',
-//            'dataSourceProperties.dataSource.url':'jdbc:postgresql://localhost:5432/postgres',
-//            'dataSourceProperties.dataSource.password' : 'my_password',
-//            'dataSourceProperties.dataSource.user' : 'party_a'
+            //  'dataSourceProperties.dataSourceClassName':'org.postgresql.ds.PGSimpleDataSource',
+            //  'dataSourceProperties.dataSource.url':'jdbc:postgresql://localhost:5432/postgres',
+            //  'dataSourceProperties.dataSource.password' : 'my_password',
+            //  'dataSourceProperties.dataSource.user' : 'party_a'
         ]
-//        drivers = ['/Users/joeldudley/Desktop/postgres_node/postgresql-42.1.4.jar']
+        // drivers = ['/Users/joeldudley/Desktop/postgres_node/postgresql-42.1.4.jar']
     }
     // A second node, if needed.
-//    node {
-//        name "O=Bloatary Node,L=Zurich,C=CH"
-//        p2pPort 10005
-//        rpcSettings {
-//            address "localhost:10006"
-//            adminAddress "localhost:10007"
-//        }
-//        rpcUsers = [[ user: "user", "password": "test", "permissions": ["ALL"]]]
-//    }
+    //  node {
+    //    name "O=Bloatary Node,L=Zurich,C=CH"
+    //    p2pPort 10005
+    //    rpcSettings {
+    //        address "localhost:10006"
+    //        adminAddress "localhost:10007"
+    //    }
+    //    rpcUsers = [[ user: "user", "password": "test", "permissions": ["ALL"]]]
+    //}
 }

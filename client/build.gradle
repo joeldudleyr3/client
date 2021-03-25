@@ -1,12 +1,16 @@
-dependencies {
-    implementation project(":core")
-    implementation project(":client:extensions-rpc")
-    implementation project(":client:rpc")
-    implementation project(":flows")
-    implementation project(':ledger:ledger-api')
-    implementation project(':legacy-api')
+plugins {
+    id 'net.corda.plugins.cordapp'
+}
 
-    implementation project(":joel:cordapp")
+dependencies {
+    cordaCompile project(":core")
+    cordaCompile project(":client:extensions-rpc")
+    cordaCompile project(":client:rpc")
+    cordaCompile project(":flows")
+    cordaCompile project(':ledger:ledger')
+    cordaCompile project(':legacy-api')
+
+    cordaCompile project(":joel:cordapp")
 }
 
 task run(type: JavaExec) {
