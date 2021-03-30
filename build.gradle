@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    cordaRuntime project(path: ":osgi-framework-bootstrap", configuration: 'runtimeArtifacts')
-    cordaRuntime project(":node-api")
+    cordaRuntimeOnly project(path: ":osgi-framework-bootstrap", configuration: 'runtimeArtifacts')
+    cordaRuntimeOnly project(":node-api")
 
     cordapp project(":joel:cordapp")
 }

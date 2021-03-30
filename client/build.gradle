@@ -1,16 +1,16 @@
 plugins {
-    id 'net.corda.plugins.cordapp'
+    id 'net.corda.plugins.cordapp-cpk'
 }
 
 dependencies {
-    cordaCompile project(":core")
-    cordaCompile project(":client:extensions-rpc")
-    cordaCompile project(":client:rpc")
-    cordaCompile project(":flows")
-    cordaCompile project(':ledger:ledger')
-    cordaCompile project(':legacy-api')
+    implementation project(":core")
+    implementation project(":client:extensions-rpc")
+    implementation project(":client:rpc")
+    implementation project(":flows")
+    implementation project(':ledger:ledger')
+    implementation project(':legacy-api')
 
-    cordaCompile project(":joel:cordapp")
+    implementation project(":joel:cordapp")
 }
 
 task run(type: JavaExec) {

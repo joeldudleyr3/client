@@ -6,11 +6,11 @@ import net.corda.core.flows.InitiatingFlow
 import net.corda.core.flows.StartableByRPC
 import net.corda.core.flows.flowservices.dependencies.CordaInject
 import net.corda.core.node.AppServiceHub
+import net.corda.core.node.ServiceHub
 import net.corda.core.node.services.CordaService
 import net.corda.core.node.services.persistence.MappedSchema
 import net.corda.systemflows.internal.notary.SinglePartyNotaryService
 import net.corda.systemflows.internal.notary.UniquenessProvider
-import net.corda.v5.ledger.services.LedgerServiceHub
 import net.corda.v5.legacyapi.flows.FlowLogic
 import net.corda.v5.serialization.CheckpointCustomSerializer
 import net.corda.v5.serialization.SerializationCustomSerializer
@@ -77,7 +77,7 @@ class CheckpointSerializer :
 class DummyNotaryService : SinglePartyNotaryService() {
     override val uniquenessProvider: UniquenessProvider
         get() = TODO("Not yet implemented")
-    override val services: LedgerServiceHub
+    override val services: ServiceHub
         get() = TODO("Not yet implemented")
     override val notaryIdentityKey: PublicKey
         get() = TODO("Not yet implemented")
