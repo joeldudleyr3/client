@@ -5,7 +5,6 @@ import net.corda.core.flows.FlowSession
 import net.corda.core.flows.InitiatingFlow
 import net.corda.core.flows.StartableByRPC
 import net.corda.core.flows.flowservices.dependencies.CordaInject
-import net.corda.core.node.AppServiceHub
 import net.corda.core.node.ServiceHub
 import net.corda.core.node.services.CordaService
 import net.corda.core.node.services.persistence.MappedSchema
@@ -31,8 +30,7 @@ class DummyFlowTwoReturnOfTheFlow : FlowLogic<String>() {
 }
 
 // Service implementation.
-@CordaService
-class DummyService(private val serviceHub: AppServiceHub) : SingletonSerializeAsToken() {
+class DummyService: CordaService, SingletonSerializeAsToken() {
     val string = "bing bong"
 }
 
@@ -76,8 +74,6 @@ class CheckpointSerializer :
 // Custom notary.
 class DummyNotaryService : SinglePartyNotaryService() {
     override val uniquenessProvider: UniquenessProvider
-        get() = TODO("Not yet implemented")
-    override val services: ServiceHub
         get() = TODO("Not yet implemented")
     override val notaryIdentityKey: PublicKey
         get() = TODO("Not yet implemented")
