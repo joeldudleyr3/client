@@ -1,5 +1,4 @@
 dependencies {
-    implementation project(":core")
     implementation project(":client:extensions-rpc")
     implementation project(":client:rpc")
     implementation project(":flows")

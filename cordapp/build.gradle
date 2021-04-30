@@ -4,11 +4,14 @@ plugins {
 }
 
 dependencies {
-    cordaProvided project(":core")
-    cordaProvided project(":flows")
+    cordaProvided project(':application')
     cordaProvided project(':ledger:ledger')
     cordaProvided project(':legacy-api')
     cordaProvided project(':serialization')
+
+    implementation ('org.jboss.weld:weld-osgi-bundle:4.0.1.SP1')
+
+    compileOnly "org.osgi:osgi.core:$osgiVersion"
 }
 
 cordapp {
