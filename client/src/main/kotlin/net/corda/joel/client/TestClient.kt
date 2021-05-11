@@ -2,7 +2,7 @@ package net.corda.joel.client
 
 import net.corda.client.rpc.CordaRPCClient
 import net.corda.joel.cordapp.TwoNodeFlow
-import net.corda.v5.application.utilities.NetworkHostAndPort.Companion.parse
+import net.corda.v5.base.util.NetworkHostAndPort.Companion.parse
 
 fun main() {
     val address = parse("localhost:10003")
